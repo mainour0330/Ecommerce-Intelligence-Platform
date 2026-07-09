@@ -175,4 +175,4 @@ Data Engineering & Artificial Intelligence
 
 > **Note**
 >
-> The current version demonstrates the complete architecture using simulated and Olist-inspired data. The project is designed to support Azure Blob Storage, Apache Spark, PostgreSQL, and Machine Learning integration for production deployment.
+> The current version demonstrates the complete architecture using simulated and Olist-inspired data. The project is designed to support Azure Blob Storage, Apache Spark, and Machine Learning integration for production deployment.
