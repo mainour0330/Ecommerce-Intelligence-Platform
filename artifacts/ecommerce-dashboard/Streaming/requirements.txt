@@ -1,0 +1,18 @@
+# Python Dependencies for Streaming Pipeline
+# متطلبات Python للـ Streaming Pipeline
+
+# Kafka Client
+kafka-python==2.0.2
+
+# Apache Spark with PySpark
+pyspark==3.5.2
+
+# Data Processing
+pandas==2.2.2
+numpy==1.26.4
+
+# JSON Processing (built-in, but listed for reference)
+# json - standard library
+
+# Optional: For better performance
+pyarrow==14.0.1

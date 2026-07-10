@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamIQ — E-Commerce Intelligence Platform</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="landing.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════ NAVBAR ══════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-logo">
+          <img src="streamiq-logo.svg" alt="StreamIQ logo" />
+        </div>
+        <div>
+          <span class="nav-name">StreamIQ</span>
+          <span class="nav-tagline">E-Commerce Intelligence</span>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-theme" id="landingThemeBtn" title="Toggle theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button class="btn-admin" onclick="launchPlatform()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Admin Access
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════ HERO ════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        Olist Brazilian E-Commerce Dataset · Live Analytics
+      </div>
+      <h1 class="hero-title">
+        Smart Insights.<br/>
+        <span class="gradient-text">Smarter Decisions.</span>
+      </h1>
+      <p class="hero-sub">
+        A full-stack e-commerce intelligence platform powered by <strong>Apache Kafka</strong>,
+        <strong>PySpark</strong>, and <strong>scikit-learn</strong> — transforming 100K+ orders
+        into real-time business intelligence.
+      </p>
+      <div class="hero-cta">
+        <button class="cta-admin cta-launch" onclick="launchPlatform()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Launch StreamIQ Platform
+        </button>
+      </div>
+      <div class="hero-stack">
+        <span class="stack-badge">Python · FastAPI</span>
+        <span class="stack-badge">Apache Kafka</span>
+        <span class="stack-badge">PySpark</span>
+        <span class="stack-badge">Azure Synapse</span>
+        <span class="stack-badge">scikit-learn · NLP</span>
+        <span class="stack-badge">React</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ STATS ═══════════════════════════ -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num" data-target="96461">0</div>
+        <div class="stat-label">Total Orders Processed</div>
+        <div class="stat-sub">from Olist dataset</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="89043">0</div>
+        <div class="stat-label">Unique Customers</div>
+        <div class="stat-sub">across 27 Brazilian states</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════ FEATURES ════════════════════════ -->
+  <section class="features-section">
+    <div class="section-header">
+      <h2>Everything you need to understand your business</h2>
+      <p>Six integrated modules built on enterprise-grade data engineering</p>
+    </div>
+    <div class="features-grid">
+
+      <div class="feat-card feat-primary">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Real-Time Kafka Streaming</h3>
+        <p>Apache Kafka simulates live order events at 8–22 orders/min. Monitor the entire pipeline from ingestion to delivery in real time.</p>
+        <div class="feat-tags">
+          <span>Apache Kafka</span><span>Event Streaming</span><span>Admin only</span>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+        </div>
+        <h3>PySpark Data Pipeline</h3>
+        <p>ETL/ELT workflows extract, clean, and transform Olist CSVs through a star-schema warehouse — ready for analytics and ML.</p>
+        <div class="feat-tags">
+          <span>PySpark</span><span>ETL</span><span>Star Schema</span>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a4.5 4.5 0 0 0 0 9 4.5 4.5 0 0 0 0-9z"/><path d="M20.5 21a8.5 8.5 0 0 0-17 0"/></svg>
+        </div>
+        <h3>Customer Segmentation (RFM)</h3>
+        <p>Recency, Frequency, Monetary segmentation clusters 89K customers into VIP, Loyal, At-Risk, and New cohorts automatically.</p>
+        <div class="feat-tags">
+          <span>RFM Model</span><span>scikit-learn</span><span>Clustering</span>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>NLP Review Intelligence</h3>
+        <p>NLTK and spaCy analyse 98K+ Portuguese reviews — extracting sentiment, bigrams, complaint clusters, and confidence scores.</p>
+        <div class="feat-tags">
+          <span>NLTK</span><span>spaCy</span><span>VADER</span>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a4.5 4.5 0 0 0-4.5 4.5c0 1.5.7 2.8 1.8 3.7-.7.6-1.3 1.4-1.6 2.3a4.5 4.5 0 0 0 6.6 5.5"/><path d="M12 12v9"/></svg>
+        </div>
+        <h3>Predictive ML Analytics</h3>
+        <p>Random Forest churn prediction and Prophet-style demand forecasting with confidence bands — all served as REST API endpoints.</p>
+        <div class="feat-tags">
+          <span>Random Forest</span><span>Forecasting</span><span>REST API</span>
+        </div>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <h3>Star Schema Warehouse</h3>
+        <p>PostgreSQL / Azure Synapse-ready schema with Fact_Sales and dimension tables — Dim_Customers, Products, Sellers, Date, Payments.</p>
+        <div class="feat-tags">
+          <span>PostgreSQL</span><span>Azure Synapse</span><span>Airflow</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════ PIPELINE ════════════════════════ -->
+  <section class="pipeline-section">
+    <div class="section-header">
+      <h2>End-to-end data architecture</h2>
+      <p>From raw CSV ingestion to live Azure Synapse warehouse — the full modern stack</p>
+    </div>
+    <div class="pipeline-flow">
+
+      <div class="pipe-step">
+        <div class="pipe-icon pipe-csv">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+        </div>
+        <div class="pipe-label">Olist CSV</div>
+        <div class="pipe-sub">Raw Data</div>
+      </div>
+
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 24 6" fill="none"><line x1="0" y1="3" x2="20" y2="3" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/><polyline points="16,1 20,3 16,5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-icon pipe-kafka">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="pipe-label">Kafka Stream</div>
+        <div class="pipe-sub">Simulation</div>
+      </div>
+
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 24 6" fill="none"><line x1="0" y1="3" x2="20" y2="3" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/><polyline points="16,1 20,3 16,5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-icon pipe-spark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="pipe-label">PySpark</div>
+        <div class="pipe-sub">Processing</div>
+      </div>
+
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 24 6" fill="none"><line x1="0" y1="3" x2="20" y2="3" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/><polyline points="16,1 20,3 16,5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      </div>
+
+      <div class="pipe-step pipe-step-highlight">
+        <div class="pipe-icon pipe-synapse">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><line x1="12" y1="8" x2="12" y2="16" stroke-dasharray="2 1"/></svg>
+        </div>
+        <div class="pipe-label">Azure Synapse</div>
+        <div class="pipe-sub">Data Warehouse</div>
+        <div class="pipe-badge">Cloud DW</div>
+      </div>
+
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 24 6" fill="none"><line x1="0" y1="3" x2="20" y2="3" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/><polyline points="16,1 20,3 16,5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-icon pipe-ml">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="pipe-label">ML Models</div>
+        <div class="pipe-sub">+ NLP</div>
+      </div>
+
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 24 6" fill="none"><line x1="0" y1="3" x2="20" y2="3" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/><polyline points="16,1 20,3 16,5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      </div>
+
+      <div class="pipe-step">
+        <div class="pipe-icon pipe-api">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+        </div>
+        <div class="pipe-label">FastAPI / Flask</div>
+        <div class="pipe-sub">REST Endpoints</div>
+      </div>
+
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 24 6" fill="none"><line x1="0" y1="3" x2="20" y2="3" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 2"/><polyline points="16,1 20,3 16,5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      </div>
+
+      <div class="pipe-step pipe-step-end">
+        <div class="pipe-icon pipe-dash">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        </div>
+        <div class="pipe-label">StreamIQ</div>
+        <div class="pipe-sub">Interactive Dashboard</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════ CTA BOTTOM ══════════════════════ -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="cta-icon-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h2>Admin-Secured Intelligence Platform</h2>
+      <p>Full access to Kafka monitoring, Azure Synapse analytics, ML predictions, and NLP insights — all in one unified admin portal.</p>
+      <div class="cta-features">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> Kafka Stream Monitoring</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> Azure Synapse Analytics</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> ML Churn Predictions</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> NLP Review Analysis</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> RFM Customer Segmentation</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg> Demand Forecasting</span>
+      </div>
+      <button class="cta-launch-big" onclick="launchPlatform()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Launch StreamIQ Platform
+      </button>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ FOOTER ══════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">StreamIQ</span>
+        <span class="footer-tag">Smart Insights. Smarter Decisions.</span>
+      </div>
+      <div class="footer-stack">
+        Built with Python · FastAPI · Flask · Apache Kafka · PySpark · Azure Synapse · scikit-learn · NLTK · spaCy · React
+      </div>
+      <div class="footer-dataset">
+        Data: <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank">Olist Brazilian E-Commerce Dataset</a> — Kaggle
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Theme ─────────────────────────────────────────────
+    const THEME_KEY = "nexora-theme";
+    const html = document.documentElement;
+
+    function applyTheme(t) {
+      html.classList.toggle("dark", t === "dark");
+      localStorage.setItem(THEME_KEY, t);
+    }
+
+    document.getElementById("landingThemeBtn").addEventListener("click", () => {
+      applyTheme(html.classList.contains("dark") ? "light" : "dark");
+    });
+
+    applyTheme(localStorage.getItem(THEME_KEY) || "light");
+
+    // ── Navbar scroll effect ──────────────────────────────
+    window.addEventListener("scroll", () => {
+      document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 40);
+    });
+
+    // ── Platform launch (admin-only) ──────────────────────
+    function launchPlatform() {
+      localStorage.setItem("nexora-role", "admin");
+      window.location.href = "dashboard";
+    }
+
+    // ── Stats counter animation ───────────────────────────
+    function animateCounter(el) {
+      const target  = parseInt(el.dataset.target, 10);
+      const suffix  = el.dataset.suffix || "";
+      const isFloat = suffix === "%";
+      const duration = 1800;
+      const start = performance.now();
+
+      function step(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const raw = target * eased;
+
+        if (isFloat) {
+          el.textContent = (raw / 10).toFixed(1) + suffix;
+        } else {
+          el.textContent = Math.round(raw).toLocaleString();
+        }
+
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    // Start counters when stats section enters viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll("[data-target]").forEach(animateCounter);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(document.querySelector(".stats-grid"));
+  </script>
+</body>
+</html>

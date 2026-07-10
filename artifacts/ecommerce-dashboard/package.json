@@ -1,0 +1,16 @@
+{
+  "name": "@workspace/ecommerce-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "build": "echo 'No build step — frontend is plain HTML/CSS/JS'",
+    "typecheck": "echo 'No TypeScript — plain Python + JS'"
+  },
+  "dependencies": {
+    "@azure/storage-blob": "^12.33.0",
+    "csvtojson": "^2.0.14",
+    "dotenv": "^17.4.2"
+  }
+}

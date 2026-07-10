@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "E-Commerce Data Intelligence Platform"
+version = "1.0.0"
+id = "artifacts/ecommerce-dashboard"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19456
+
+[services.development]
+run = "pnpm --filter @workspace/ecommerce-dashboard run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ecommerce-dashboard", "run", "build" ]
+publicDir = "artifacts/ecommerce-dashboard/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19456"
+BASE_PATH = "/"

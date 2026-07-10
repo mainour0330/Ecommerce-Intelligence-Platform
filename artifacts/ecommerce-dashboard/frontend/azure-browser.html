@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azure Storage Browser | مستكشف Azure</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .header h1 {
+      color: #667eea;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    
+    .header p {
+      color: #666;
+      font-size: 1.1rem;
+    }
+    
+    .status-bar {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .status-icon {
+      font-size: 1.5rem;
+    }
+    
+    .status-label {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .status-value {
+      color: #333;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    
+    .files-container {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    
+    .files-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .files-header h2 {
+      font-size: 1.5rem;
+    }
+    
+    .refresh-btn {
+      background: rgba(255,255,255,0.2);
+      border: 2px solid white;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+    
+    .refresh-btn:hover {
+      background: white;
+      color: #667eea;
+    }
+    
+    .files-list {
+      padding: 20px;
+    }
+    
+    .file-item {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+    }
+    
+    .file-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-color: #667eea;
+    }
+    
+    .file-info {
+      flex: 1;
+    }
+    
+    .file-name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .file-icon {
+      font-size: 1.5rem;
+    }
+    
+    .file-details {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .file-detail {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .file-detail strong {
+      color: #333;
+    }
+    
+    .file-actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .action-btn {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    
+    .action-btn:hover {
+      background: #764ba2;
+      transform: scale(1.05);
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #667eea;
+      font-size: 1.2rem;
+    }
+    
+    .spinner {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #667eea;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 20px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .error {
+      background: #ffebee;
+      color: #c62828;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px;
+      text-align: center;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    
+    .badge-csv {
+      background: #e3f2fd;
+      color: #1976d2;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>☁️ Azure Storage Browser</h1>
+      <p>مستكشف ملفات Azure Storage - Container: <strong>cleaned-data</strong></p>
+    </div>
+    
+    <!-- Status Bar -->
+    <div class="status-bar">
+      <div class="status-item">
+        <span class="status-icon">📂</span>
+        <div>
+          <div class="status-label">Total Files</div>
+          <div class="status-value" id="totalFiles">-</div>
+        </div>
+      </div>
+      
+      <div class="status-item">
+        <span class="status-icon">💾</span>
+        <div>
+          <div class="status-label">Total Size</div>
+          <div class="status-value" id="totalSize">-</div>
+        </div>
+      </div>
+      
+      <div class="status-item">
+        <span class="status-icon">✅</span>
+        <div>
+          <div class="status-label">Connection</div>
+          <div class="status-value" id="connectionStatus">-</div>
+        </div>
+      </div>
+      
+      <div class="status-item">
+        <span class="status-icon">📅</span>
+        <div>
+          <div class="status-label">Last Updated</div>
+          <div class="status-value" id="lastUpdated">-</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Files Container -->
+    <div class="files-container">
+      <div class="files-header">
+        <h2>📄 Files in Azure Storage</h2>
+        <button class="refresh-btn" onclick="loadFiles()">🔄 Refresh</button>
+      </div>
+      
+      <div class="files-list" id="filesList">
+        <div class="loading">
+          <div class="spinner"></div>
+          <div>Loading files from Azure...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Load files on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadFiles();
+    });
+    
+    async function loadFiles() {
+      const filesList = document.getElementById('filesList');
+      filesList.innerHTML = `
+        <div class="loading">
+          <div class="spinner"></div>
+          <div>Loading files from Azure...</div>
+        </div>
+      `;
+      
+      try {
+        const response = await fetch('/api/azure/browse');
+        const data = await response.json();
+        
+        // Update status bar
+        document.getElementById('totalFiles').textContent = data.totalFiles;
+        document.getElementById('totalSize').textContent = calculateTotalSize(data.rootFiles);
+        document.getElementById('connectionStatus').textContent = 'Connected';
+        document.getElementById('lastUpdated').textContent = new Date(data.lastUpdated).toLocaleString();
+        
+        // Display files
+        if (data.rootFiles.length === 0) {
+          filesList.innerHTML = '<div class="loading">No files found in Azure Storage</div>';
+          return;
+        }
+        
+        filesList.innerHTML = data.rootFiles.map((file, index) => `
+          <div class="file-item">
+            <div class="file-info">
+              <div class="file-name">
+                <span class="file-icon">📄</span>
+                ${file.name}
+                <span class="badge badge-csv">${file.type}</span>
+              </div>
+              <div class="file-details">
+                <div class="file-detail">
+                  <strong>Size:</strong> ${file.sizeFormatted}
+                </div>
+                <div class="file-detail">
+                  <strong>Modified:</strong> ${new Date(file.lastModified).toLocaleString()}
+                </div>
+                <div class="file-detail">
+                  <strong>Path:</strong> ${file.fullPath}
+                </div>
+              </div>
+            </div>
+            <div class="file-actions">
+              <button class="action-btn" onclick="viewFile('${file.fullPath}')">
+                👁️ View Info
+              </button>
+              <button class="action-btn" onclick="loadData('${file.fullPath}')">
+                📊 Load Data
+              </button>
+            </div>
+          </div>
+        `).join('');
+        
+      } catch (error) {
+        filesList.innerHTML = `
+          <div class="error">
+            ❌ Error loading files: ${error.message}
+          </div>
+        `;
+      }
+    }
+    
+    function calculateTotalSize(files) {
+      const totalBytes = files.reduce((sum, file) => sum + file.size, 0);
+      const mb = (totalBytes / (1024 * 1024)).toFixed(2);
+      return `${mb} MB`;
+    }
+    
+    async function viewFile(path) {
+      try {
+        const response = await fetch(`/api/azure/file-info?path=${encodeURIComponent(path)}`);
+        const info = await response.json();
+        
+        alert(`📄 File Information:\n\n` +
+              `Name: ${info.name}\n` +
+              `Full Path: ${info.fullPath}\n` +
+              `Size: ${info.sizeFormatted}\n` +
+              `Type: ${info.type}\n` +
+              `Content Type: ${info.contentType}\n` +
+              `Created: ${new Date(info.createdOn).toLocaleString()}\n` +
+              `Modified: ${new Date(info.lastModified).toLocaleString()}\n` +
+              `ETag: ${info.etag}`);
+      } catch (error) {
+        alert('❌ Error: ' + error.message);
+      }
+    }
+    
+    async function loadData(path) {
+      const fileName = path.split('/').pop();
+      const endpoint = `/api/azure/${fileName.replace('_clean.csv', '')}` + 
+                      (fileName === 'customers_clean.csv' ? '' : 's');
+      
+      alert(`📊 Loading data from: ${fileName}\n\nEndpoint: ${endpoint}\n\nThis will load the data via API...`);
+      
+      // You can implement actual data loading here
+      window.open(endpoint, '_blank');
+    }
+  </script>
+</body>
+</html>

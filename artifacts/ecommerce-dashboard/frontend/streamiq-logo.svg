@@ -1,0 +1,19 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2EC4FF"/>
+      <stop offset="50%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#F472B6"/>
+    </linearGradient>
+    <linearGradient id="cartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="36" fill="#091A2D"/>
+  <path d="M55 50c0-12 10-22 22-22h22c12 0 22 10 22 22v18c0 12-10 22-22 22h-26c-6 0-12 5-12 12v14" fill="none" stroke="url(#logoGradient)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M85 114h34l10 18H67" fill="none" stroke="url(#cartGradient)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="90" cy="142" r="10" fill="#FBBF24"/>
+  <circle cx="122" cy="142" r="10" fill="#FBBF24"/>
+  <path d="M118 78h30l-12 20" fill="none" stroke="url(#cartGradient)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
